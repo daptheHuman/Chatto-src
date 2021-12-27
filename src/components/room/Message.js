@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { messagesQuery, onSnapshot } from '../firebase/Firestore';
-import ChatMessage from './ChatMessage';
+import BubbleChat from './BubbleChat';
+
+//Styling
+import { Box } from '@mui/material';
 
 const Message = () => {
 	const [messages, setMessages] = useState([]);
@@ -40,16 +43,20 @@ const Message = () => {
 	}, []);
 
 	return (
-		<div>
-			<ul>
-				{messages.map((message) => (
-					<ChatMessage
-						key={`${message.text}-${message.createdAt}`}
-						message={message}
-					/>
-				))}
-			</ul>
-		</div>
+		<Box
+			sx={{
+				display: 'flex',
+				flexDirection: 'column',
+				gap: '.5rem',
+			}}
+		>
+			{messages.map((message) => (
+				<BubbleChat
+					key={`${message.text}-${message.createdAt}`}
+					message={message}
+				/>
+			))}
+		</Box>
 	);
 };
 

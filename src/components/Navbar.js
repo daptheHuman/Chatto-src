@@ -1,27 +1,34 @@
 import { SignOutButton } from './firebase/handler/Authentication';
 
-const Navbar = (props) => {
+import { AppBar, Typography, Box, Toolbar } from '@mui/material';
+
+const Nav = (props) => {
 	const { changeState, auth, currentUser } = props;
 
 	return (
-		<div>
-			<nav>
-				<div className="nav-wrapper">
-					<h2>Chatto</h2>
-					<ul className="right">
-						{currentUser && (
-							<div>
-								<p>Hello, {currentUser.displayName}</p>
-								<div>
-									<SignOutButton changeState={changeState} auth={auth} />
-								</div>
-							</div>
-						)}
-					</ul>
-				</div>
-			</nav>
-		</div>
+		<AppBar position="sticky">
+			<Toolbar>
+				<Typography variant="h6" sx={{ flexGrow: 1 }}>
+					Chatto
+				</Typography>
+				{currentUser && (
+					<Box
+						sx={{
+							display: 'flex',
+							alignItems: 'center',
+							alignContent: 'center',
+						}}
+					>
+						<Typography variant="overline" noWrap={true}>
+							Hello, {currentUser.displayName}
+						</Typography>
+
+						<SignOutButton changeState={changeState} auth={auth} />
+					</Box>
+				)}
+			</Toolbar>
+		</AppBar>
 	);
 };
 
-export default Navbar;
+export default Nav;
