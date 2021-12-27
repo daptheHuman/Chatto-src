@@ -39,16 +39,23 @@ const Channel = (props) => {
 					py: 3,
 				}}
 			>
-				<Typography
-					sx={{ alignSelf: 'center' }}
-					display="inline-block"
-					variant="h3"
-				>
-					" Welcome to&nbsp;
-					<Typography display="inline" variant="h2" color="accent.main">
-						Chatto
-					</Typography>
-					"
+				<Typography sx={{ alignSelf: 'center' }} display="inline" variant="h2">
+					{'"Welcome to'}
+					{
+						<div sx={{ display: 'inline' }}>
+							<Typography
+								sx={{ fontWeight: 'bold' }}
+								display="inline"
+								variant="h2"
+								color="accent.main"
+							>
+								Chatto
+							</Typography>
+							<Typography display="inline" variant="h2" color="white">
+								{'"'}
+							</Typography>
+						</div>
+					}
 				</Typography>
 
 				<Message />
