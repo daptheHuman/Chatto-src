@@ -16,12 +16,8 @@ jobs:
 
       - name: Build
         run: |
-          git config --global user.name $user_name
-          git config --global user.email $user_email
-          git remote set-url origin https://${github_token}@github.com/${repository}
           npm install
           npm run-script build
-          npm run deploy
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v3
