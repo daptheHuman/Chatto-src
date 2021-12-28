@@ -15,7 +15,6 @@ jobs:
 
       - name: Build
         run: |
-          git init
           git remote add origin git@github.com:daptheHuman/Chatto-src.git
           npm install
           npm run-script build
