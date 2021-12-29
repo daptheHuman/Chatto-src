@@ -19,7 +19,7 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyCV8PgKzq1vOtWEJvfJHTvpijkecGP8t1Y',
+	apiKey: 'AIzaSyBWHhba8O-VIYYf7ML3cTT0EWfrWM184aM',
 	authDomain: 'realtime-chatapp-ed98a.firebaseapp.com',
 	projectId: 'realtime-chatapp-ed98a',
 	storageBucket: 'realtime-chatapp-ed98a.appspot.com',
@@ -30,6 +30,7 @@ const firebaseConfig = {
 // Initialize Firebase
 // eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
+console.log(firebaseConfig);
 const db = getFirestore();
 
 // Messages Query
