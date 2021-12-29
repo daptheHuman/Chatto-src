@@ -11,18 +11,6 @@ import {
 	ListItemText,
 	Divider,
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-const useStyles = makeStyles((theme) => ({
-	sent: {
-		// alignSelf: 'flex-end',
-		// alignItems: 'center',
-		// width: '100',
-	},
-	received: {
-		alignSelf: 'flex-start',
-		alignItems: 'center',
-	},
-}));
 
 const BubbleChat = (props) => {
 	const { text, uid } = props.message;
@@ -30,13 +18,8 @@ const BubbleChat = (props) => {
 	const photoProfile = Auth.getUser().photoURL;
 	const isSent = uid === userId;
 
-	const classes = useStyles();
-
 	return (
-		<List
-			disablePadding={true}
-			className={isSent ? classes.sent : classes.received}
-		>
+		<List disablePadding={true}>
 			<ListItem
 				divider={true}
 				// set bg color to primary.bg as default
@@ -51,7 +34,11 @@ const BubbleChat = (props) => {
 				}
 			>
 				<ListItemAvatar>
-					<Avatar src={photoProfile} alt="profile" />
+					<Avatar
+						referrerPolicy="no-referrer"
+						src={photoProfile}
+						alt="profile"
+					/>
 				</ListItemAvatar>
 				<ListItemText
 					sx={{ mx: 2 }}
