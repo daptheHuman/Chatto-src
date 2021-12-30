@@ -58,6 +58,7 @@ const BubbleChat = (props) => {
 					}
 					secondary={
 						<Typography
+							whiteSpace="pre-line"
 							display="inline"
 							variant="body1"
 							align={isSent ? 'right' : 'left'}
