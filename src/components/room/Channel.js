@@ -10,12 +10,12 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 const Channel = (props) => {
 	const { theme } = props;
 	const [message, setMessage] = useState('');
-	const id = props.currentUser.uid;
+	const user = props.currentUser;
 
 	const sendMessage = async (e) => {
-		if (message.length > 0 && id) {
+		if (message.length > 0 && user) {
 			try {
-				await addMessage(message, id);
+				await addMessage(message, user);
 				setMessage('');
 			} catch (err) {
 				console.error('Error: ', err);

@@ -13,9 +13,8 @@ import {
 } from '@mui/material';
 
 const BubbleChat = (props) => {
-	const { text, uid } = props.message;
+	const { text, displayName, uid, photoURL } = props.message;
 	const userId = Auth.getUser().uid;
-	const photoProfile = Auth.getUser().photoURL;
 	const isSent = uid === userId;
 
 	return (
@@ -34,15 +33,20 @@ const BubbleChat = (props) => {
 				}
 			>
 				<ListItemAvatar>
-					<Avatar
-						referrerPolicy="no-referrer"
-						src={photoProfile}
-						alt="profile"
-					/>
+					<Avatar referrerPolicy="no-referrer" src={photoURL} alt="profile" />
 				</ListItemAvatar>
 				<ListItemText
 					sx={{ mx: 2 }}
 					primary={
+						<Typography
+							variant="caption"
+							display="block"
+							align={isSent ? 'right' : 'left'}
+						>
+							{displayName}
+						</Typography>
+					}
+					secondary={
 						<Typography variant="body1" align={isSent ? 'right' : 'left'}>
 							{text}
 						</Typography>

@@ -42,6 +42,8 @@ const Message = () => {
 		};
 	}, []);
 
+	console.log('messages: ', messages);
+
 	return (
 		<Box
 			sx={{
