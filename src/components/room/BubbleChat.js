@@ -9,7 +9,6 @@ import {
 	ListItem,
 	ListItemAvatar,
 	ListItemText,
-	Divider,
 } from '@mui/material';
 
 const BubbleChat = (props) => {
@@ -20,8 +19,7 @@ const BubbleChat = (props) => {
 	return (
 		<List disablePadding={true}>
 			<ListItem
-				divider={true}
-				// set bg color to primary.bg as default
+				alignItems="flex-start"
 				sx={
 					isSent
 						? {
@@ -36,7 +34,19 @@ const BubbleChat = (props) => {
 					<Avatar referrerPolicy="no-referrer" src={photoURL} alt="profile" />
 				</ListItemAvatar>
 				<ListItemText
-					sx={{ mx: 2 }}
+					sx={{
+						mx: 2,
+						my: 0,
+						px: 1,
+
+						// if isSent true set the border radius to 0
+						// else set the border radius to 0
+						borderRadius: isSent
+							? '.5rem .5rem 0 .5rem'
+							: '.5rem .5rem .5rem 0',
+						bgcolor: isSent ? '#B0283B' : '#ED4C61',
+						flex: '0 0 auto',
+					}}
 					primary={
 						<Typography
 							variant="caption"
@@ -47,17 +57,16 @@ const BubbleChat = (props) => {
 						</Typography>
 					}
 					secondary={
-						<Typography variant="body1" align={isSent ? 'right' : 'left'}>
+						<Typography
+							display="inline"
+							variant="body1"
+							align={isSent ? 'right' : 'left'}
+						>
 							{text}
 						</Typography>
 					}
 				></ListItemText>
 			</ListItem>
-			<Divider
-				variant="middle"
-				component="li"
-				sx={{ bgcolor: 'accent.main' }}
-			/>
 		</List>
 	);
 };
