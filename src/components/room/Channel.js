@@ -83,6 +83,16 @@ const Channel = (props) => {
 						placeholder="Message"
 						value={message}
 						onChange={(e) => changeHandler(e)}
+						// when pressing SHIFT + ENTER to make new line and when only press ENTER to sendMessage
+						onKeyDown={(e) => {
+							if (e.keyCode === 13 && e.shiftKey) {
+								e.preventDefault();
+								setMessage(message + '\n');
+							} else if (e.keyCode === 13) {
+								e.preventDefault();
+								sendMessage();
+							}
+						}}
 					/>
 
 					<Button
