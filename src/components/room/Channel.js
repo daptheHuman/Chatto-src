@@ -65,14 +65,14 @@ const Channel = (props) => {
 				<Toolbar
 					sx={{
 						bgcolor: 'secondary.bg',
-						borderRadius: '50px',
+						borderRadius: '1rem',
 						justifyContent: 'space-between',
-						alignItems: 'stretch',
+						alignItems: 'center',
 						padding: '0px',
 					}}
 				>
 					<Input
-						sx={{ mx: 2, flex: '1 1 2' }}
+						sx={{ mx: 2, flex: '2 0 2' }}
 						variant="standard"
 						size="small"
 						autoFocus={true}
@@ -87,16 +87,16 @@ const Channel = (props) => {
 
 					<Button
 						sx={{
-							borderRadius: '50%',
+							borderRadius: '1rem',
 							m: 1,
 							p: 1,
-							flex: '0 1 1',
+							flex: '0 2 auto',
 						}}
 						variant="contained"
 						color="accent"
 						onClick={sendMessage}
 					>
-						<ArrowForwardIosIcon fontSize="small" color="white" />
+						<ArrowForwardIosIcon fontSize="small" color="red" />
 					</Button>
 				</Toolbar>
 			</AppBar>
