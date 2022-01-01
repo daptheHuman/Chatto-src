@@ -98,7 +98,7 @@ const Channel = (props) => {
 					<Button
 						sx={{
 							borderRadius: '1rem',
-							m: 1,
+							mx: 1,
 							p: 1,
 							flex: '0 2 auto',
 						}}
